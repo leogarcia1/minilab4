@@ -9,3 +9,5 @@ module memA
     input [$clog2(DIM)-1:0] Arow,
     output signed [BITS_AB-1:0] Aout [DIM-1:0]
    );
+
+endmodule

@@ -8,4 +8,5 @@ module memB
     input signed [BITS_AB-1:0] Bin [DIM-1:0],
     output signed [BITS_AB-1:0] Bout [DIM-1:0]
     );
-    
+
+endmodule
