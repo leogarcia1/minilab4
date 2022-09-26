@@ -1,0 +1,219 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/07yhx/ece554/ece554_minilab3
+vfifo
+Z0 DXx6 sv_std 3 std 0 22 WmjPaeP=7F5?QFXzJ>D[Q2
+Z1 !s110 1664158256
+!i10b 1
+!s100 :CSE0TU2MHS2CEz`fX=G<0
+I1;1Ob^8HGgJ6<5G:1]bD[3
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+!s105 fifo_sv_unit
+S1
+Z3 dC:/Users/07yhx/ece554/minilab4
+w1664158253
+8C:/Users/07yhx/ece554/minilab4/fifo.sv
+FC:/Users/07yhx/ece554/minilab4/fifo.sv
+L0 6
+Z4 OV;L;10.4d;61
+r1
+!s85 0
+31
+Z5 !s108 1664158256.000000
+!s107 C:/Users/07yhx/ece554/minilab4/fifo.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/07yhx/ece554/minilab4/fifo.sv|
+!i113 1
+Z6 o-work work -sv
+vmemA
+R0
+R1
+!i10b 1
+!s100 ^_kUDGQ63jaDoS6j3YXc?2
+Im:o]zWg]a4OA5jELD6hn71
+R2
+!s105 memA_sv_unit
+S1
+R3
+w1664158068
+8C:/Users/07yhx/ece554/minilab4/memA.sv
+FC:/Users/07yhx/ece554/minilab4/memA.sv
+L0 6
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Users/07yhx/ece554/minilab4/memA.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/07yhx/ece554/minilab4/memA.sv|
+!i113 1
+R6
+nmem@a
+vmemB
+R0
+R1
+!i10b 1
+!s100 0UP9cjc5Vj7;3=?cX@ZAX0
+I56oji0PQf]U9hJ1^GbG@?1
+R2
+!s105 memB_sv_unit
+S1
+R3
+w1663885626
+8C:/Users/07yhx/ece554/minilab4/memB.sv
+FC:/Users/07yhx/ece554/minilab4/memB.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Users/07yhx/ece554/minilab4/memB.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/07yhx/ece554/minilab4/memB.sv|
+!i113 1
+R6
+nmem@b
+vsystolic_array
+R0
+R1
+!i10b 1
+!s100 oMa^o]X0W_A_=0Q0CnJ=W2
+IoO=j6EYj@g>J:8ilfbO>O3
+R2
+!s105 systolic_array_sv_unit
+S1
+R3
+Z7 w1663883598
+8C:/Users/07yhx/ece554/minilab4/systolic_array.sv
+FC:/Users/07yhx/ece554/minilab4/systolic_array.sv
+L0 2
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Users/07yhx/ece554/minilab4/systolic_array.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/07yhx/ece554/minilab4/systolic_array.sv|
+!i113 1
+R6
+vsystolic_array_tb
+R0
+DXx4 work 25 systolic_array_tb_sv_unit 0 22 UkWFlgRGKobSXT_]eHkk81
+R2
+r1
+!s85 0
+31
+!i10b 1
+!s100 10;?o1A>a[[C3dLj3PVG=2
+I[Dl_L<Q371zon=Ob52U0U3
+!s105 systolic_array_tb_sv_unit
+S1
+R3
+R7
+Z8 8C:/Users/07yhx/ece554/minilab4/systolic_array_tb.sv
+Z9 FC:/Users/07yhx/ece554/minilab4/systolic_array_tb.sv
+L0 5
+R4
+R5
+Z10 !s107 systolic_array_tc.svh|C:/Users/07yhx/ece554/minilab4/systolic_array_tb.sv|
+Z11 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/07yhx/ece554/minilab4/systolic_array_tb.sv|
+!i113 1
+R6
+Xsystolic_array_tb_sv_unit
+R0
+VUkWFlgRGKobSXT_]eHkk81
+r1
+!s85 0
+31
+!i10b 1
+!s100 J1E=^nTml:^J8?ojHCzgY1
+IUkWFlgRGKobSXT_]eHkk81
+!i103 1
+S1
+R3
+R7
+R8
+R9
+Fsystolic_array_tc.svh
+L0 3
+R4
+R5
+R10
+R11
+!i113 1
+R6
+Xsystolic_array_tc_svh_unit
+R0
+R1
+!i10b 1
+!s100 azE3XfS`@ALH_ob;ajET81
+IA>>`ncFOfMBZhEK6:9N1^3
+VA>>`ncFOfMBZhEK6:9N1^3
+!i103 1
+S1
+R3
+R7
+8C:/Users/07yhx/ece554/minilab4/systolic_array_tc.svh
+FC:/Users/07yhx/ece554/minilab4/systolic_array_tc.svh
+L0 3
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Users/07yhx/ece554/minilab4/systolic_array_tc.svh|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/07yhx/ece554/minilab4/systolic_array_tc.svh|
+!i113 1
+R6
+vtpumac
+R0
+R1
+!i10b 1
+!s100 ;hmJDTAmPk]QOfCTS9kN41
+I89?ZC2[C2U2TMdnnFN5Ak1
+R2
+!s105 tpumac_sv_unit
+S1
+R3
+R7
+8C:/Users/07yhx/ece554/minilab4/tpumac.sv
+FC:/Users/07yhx/ece554/minilab4/tpumac.sv
+L0 2
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Users/07yhx/ece554/minilab4/tpumac.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/07yhx/ece554/minilab4/tpumac.sv|
+!i113 1
+R6
+vtranspose_fifo
+R0
+R1
+!i10b 1
+!s100 V4<JJf0f0bZUD<EPQ0CUl2
+I>EU?zV5SD=PkQ77NOnmkm1
+R2
+!s105 transpose_fifo_sv_unit
+S1
+R3
+w1664158238
+8C:/Users/07yhx/ece554/minilab4/transpose_fifo.sv
+FC:/Users/07yhx/ece554/minilab4/transpose_fifo.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Users/07yhx/ece554/minilab4/transpose_fifo.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/07yhx/ece554/minilab4/transpose_fifo.sv|
+!i113 1
+R6
