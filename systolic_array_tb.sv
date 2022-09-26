@@ -9,7 +9,7 @@ module systolic_array_tb();
    localparam DIM=8;
    localparam ROWBITS=$clog2(DIM);
    
-   localparam TESTS=10;
+   localparam TESTS=16;
    
    // Clock
    logic clk;
