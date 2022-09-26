@@ -20,7 +20,7 @@ module fifo
   always_ff @(posedge clk, negedge rst_n) begin
     if(!rst_n) begin
       for (i=0; i<DEPTH; ++i) begin
-        buffer[i] <= 64'h0;
+        buffer[i] <= '0;
       end
     end
     else if(en) begin
