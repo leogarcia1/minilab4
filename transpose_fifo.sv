@@ -16,7 +16,6 @@ logic [BITS-1:0] fifo_out [DEPTH-1:0];
 logic [BITS-1:0] d_fifo_out [DEPTH-1:0];
 
 // DelayFIFO that holds zeroes to form a rhombus shape for FIFO
-// logic [BITS-1:0] delay_fifo [DEPTH-1:0] [DEPTH-1:0];
 genvar row;
 generate
 	for (row=0; row<DEPTH; row++) begin
