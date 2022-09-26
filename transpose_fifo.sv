@@ -6,14 +6,26 @@ module transpose_fifo  #(
 	input clk,rst_n, en, WrEn,
 	input [$clog2(DEPTH)-1:0] Arow,
 	input [BITS-1:0] Ain [DEPTH-1:0], 
-	output [BITS-1:0] Aout
+	output [BITS-1:0] Aout [DEPTH-1:0]
 );
 
-// DelayFIFO that holds zeroes to form a rhombus shape for FIFO
-logic [BITS-1:0] delay_fifo [DEPTH-1:0] [DEPTH-1:0];
-
 // Make 8 FIFO modules each has 8 bits * 8 elements to store matrix data which will later be pumped to delayFIFO
-logic [BITS-1:0] fifo [DEPTH-1:0] [DEPTH-1:0];
+logic [BITS-1:0] fifo [DEPTH:0] [DEPTH:0];
+// fifo_out are value holders(wires) that direct the output from FIFO to delayFIFO, and d_fifo_out is the value coming out of delay fifo
+logic [BITS-1:0] fifo_out [DEPTH-1:0];
+logic [BITS-1:0] d_fifo_out [DEPTH-1:0];
+
+// DelayFIFO that holds zeroes to form a rhombus shape for FIFO
+// logic [BITS-1:0] delay_fifo [DEPTH-1:0] [DEPTH-1:0];
+genvar row;
+generate
+	for (row=0; row<DEPTH; row++) begin
+		fifo delay_fifo(.clk(clk), .rst_n(rst_n), .en(en), .d(fifo_out[row]), .q(d_fifo_out[row]));
+		defparam delay_fifo.DEPTH=row+1;  // Don't know if DEPTH=0 works so added 1
+		defparam delay_fifo.BITS=BITS;
+	end
+endgenerate
+
 always @(posedge clk, negedge rst_n) begin
 	// Reset the fifo modules on negative reset
 	if(!rst_n) begin
@@ -34,22 +46,16 @@ always @(posedge clk, negedge rst_n) begin
 	// If enabled, pipeline the data to delayFIFO which appends zeroes to form rhombus shape.
 	else if(en) begin
 		for(integer i = 0; i < DEPTH; i++) begin
-			if (i == DEPTH - 1)
-				fifo[DEPTH-1] <= '0;
-			else
-				fifo[i] <= fifo[i+1];
+			// Feeds output from FIFO to delayFIFO
+			fifo_out[i] <= fifo[i][DEPTH-1];
+			// Ripple the data from the previous element to the next element, basically does what FIFO buffer do.
+			for(integer j = 0; j < DEPTH; j++) begin
+				fifo[j] <= fifo[j+1];
+			end
 		end
 	end
 end
 
-genvar row, col;
-generate
-for(row=0; row<BITS; ++row) begin
-	fifo df1(.clk(clk), .rst_n(rst_n), .en(en), .d(fifo[row]), .q());
-end
-endgenerate
-
-
-assign Aout = fifo[0];
+assign Aout = d_fifo_out;
 
 endmodule
