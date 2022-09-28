@@ -23,7 +23,7 @@ generate
 			transpose_fifo tf(.clk(clk),.rst_n(rst_n),.en(en),.WrEn(WrEn),.Ain(Ain),.Aout(Aout[0]));
 
 		else
-			transpose_fifo #(.DEPTH(DIM + row)) tf(.clk(clk),.rst_n(rst_n),.en(en),.WrEn(WrEn),.Ain({row{b'0},Ain}),.Aout(Aout[row]));
+			transpose_fifo #(.DEPTH(DIM + row)) tf(.clk(clk),.rst_n(rst_n),.en(en),.WrEn(WrEn),.Ain({ {row{1'b0}} , Ain}),.Aout(Aout[row]));
 	end
 endgenerate
 

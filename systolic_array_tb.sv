@@ -25,7 +25,7 @@ module systolic_array_tb();
 
    always #5 clk = ~clk; 
 
-   integer                   errors,mycycle;
+   integer errors,mycycle;
 
    systolic_array #(.BITS_AB(BITS_AB),
                     .BITS_C(BITS_C),
@@ -43,25 +43,24 @@ module systolic_array_tb();
    end
    
    initial begin
-	  clk = 1'b0;
-	  rst_n = 1'b1;
-	  en = 1'b0;
-	  WrEn = 1'b0;
-	  errors = 0;
+      clk = 1'b0;
+      rst_n = 1'b1;
+      en = 1'b0;
+      WrEn = 1'b0;
+      errors = 0;
       Crow = {ROWBITS{1'b0}};
       for(int rowcol=0;rowcol<DIM;++rowcol) begin
          A[rowcol] = {BITS_AB{1'b0}};
          B[rowcol] = {BITS_AB{1'b0}};
          Cin[rowcol] = {BITS_C{1'b0}};
       end
-      
-	  // reset and check Cout
-	  @(posedge clk) begin end
-	  rst_n = 1'b0; // active low reset
+
+      // reset and check Cout
+      @(posedge clk) begin end
+      rst_n = 1'b0; // active low reset
       @(posedge clk) begin end
       rst_n = 1'b1; // reset finished
-	  @(posedge clk) begin end
-
+      @(posedge clk) begin end
       // check that C was properly reset
       for(int Row=0;Row<DIM;++Row) begin
          Crow = {Row[ROWBITS-1:0]};

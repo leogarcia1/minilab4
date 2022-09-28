@@ -7,10 +7,10 @@ class systolic_array_tc #(parameter BITS_AB=8,
    bit signed [BITS_AB-1:0] A [DIM-1:0][DIM-1:0];
    bit signed [BITS_AB-1:0] B [DIM-1:0][DIM-1:0];
    bit signed [BITS_C-1:0] C [DIM-1:0][DIM-1:0];
-   int                     cycle;
+   int cycle;
    
    function new();
-      int                  Aval, Bval;
+      int Aval, Bval;
       // randomize A and B
       for(int Row=0;Row<DIM;++Row) begin
 	     for(int Col=0;Col<DIM;++Col) begin
@@ -69,7 +69,7 @@ class systolic_array_tc #(parameter BITS_AB=8,
       int failures = 0;
       for(int Col=0;Col<DIM;++Col) begin
          //$display("check_row_C Row=%1d Col=%1d Cout=%5d C=%5d",
-         //         Row,Col,Cout[Col],C[Row][Col]);
+         // Row,Col,Cout[Col],C[Row][Col]);
          
          if (Cout[Col] !== C[Row][Col]) begin
             ++failures;
