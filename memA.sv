@@ -20,10 +20,10 @@ genvar row;
 generate
 	for (row=0; row<DEPTH; row++) begin
 		if(row == 0)
-			transpose_fifo tf(.clk(clk),.rst_n(rst_n),.en(en),.WrEn(WrEn),.Ain(Ain),.Aout(Aout));
+			transpose_fifo tf(.clk(clk),.rst_n(rst_n),.en(en),.WrEn(WrEn),.Ain(Ain),.Aout(Aout[0]));
 
 		else
-			transpose_fifo #(DEPTH = DEPTH + row) tf(.clk(clk),.rst_n(rst_n),.en(en),.WrEn(WrEn),.Ain({row{b'0},Ain}),.Aout(Aout));
+			transpose_fifo #(DEPTH = DEPTH + row) tf(.clk(clk),.rst_n(rst_n),.en(en),.WrEn(WrEn),.Ain({row{b'0},Ain}),.Aout(Aout[row]));
 	end
 endgenerate
 
