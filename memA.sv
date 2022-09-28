@@ -14,7 +14,17 @@ module memA
     input [$clog2(DIM)-1:0] Arow,
     output signed [BITS_AB-1:0] Aout [DIM-1:0]
 );
-// Instantiate a transpose fifo module that takes input of Ain as data to be stored in memory and outputs the rhombus shape data
-transpose_fifo tf(.clk(clk),.rst_n(rst_n),.en(en),.WrEn(WrEn),.Ain(Ain),.Aout(Aout));
+
+
+genvar row;
+generate
+	for (row=0; row<DEPTH; row++) begin
+		if(row == 0)
+			transpose_fifo tf(.clk(clk),.rst_n(rst_n),.en(en),.WrEn(WrEn),.Ain(Ain),.Aout(Aout));
+
+		else
+			transpose_fifo #(DEPTH = DEPTH + row) tf(.clk(clk),.rst_n(rst_n),.en(en),.WrEn(WrEn),.Ain({row{b'0},Ain}),.Aout(Aout));
+	end
+endgenerate
 
 endmodule
