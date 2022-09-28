@@ -13,7 +13,7 @@ module memB
 		input en, 
     input signed [BITS_AB-1:0] Bin [DIM-1:0],
 		// Output
-    output signed [BITS_AB-1:0] Bout [DIM-1:0],
+    output signed [BITS_AB-1:0] Bout [DIM-1:0]
   );
 		
 	// Declare the gen variable
@@ -21,8 +21,9 @@ module memB
 		
 	generate  
 		for (i = 0; i < DIM; i = i + 1) begin // for B rows
-			fifo FIFO_BLK#(.DEPTH(8+i),
-							 .BITS(BITS_AB))
+			fifo #(.DEPTH(8+i),
+						.BITS(BITS_AB)
+						) FIFO_BLK 
 						(
 						.clk(clk),
 						.rst_n(rst_n),
