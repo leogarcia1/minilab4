@@ -4,7 +4,7 @@ module transpose_fifo  #(
   )
   (
   input clk,rst_n, en, Arow, WrEn,
-  input [BITS-1:0] Ain [DEPTH-1:0], 
+  input [BITS-1:0] Ain [DEPTH-1:0],  // In matrix first row [5, 4, 2, 1, ...], 5 is matrix 00 which is Ain[7] in verilog
   output [BITS-1:0] Aout
   );
 
@@ -24,16 +24,16 @@ module transpose_fifo  #(
 
 	else if(en) begin
 		for(integer i = 0; i < DEPTH; i++) begin
-			if(i == DEPTH - 1)
-				fifo[DEPTH-1] <= '0;
+			if(i == 0)
+				fifo[0] <= '0;
 			else
-				fifo[i] <= fifo[i+1];
+				fifo[DEPTH - 1 - i] <= fifo[DEPTH - 1 - i - 1];
 		end
 	end
 
   end
 
-
-  assign Aout = fifo[0];
+	
+  assign Aout = fifo[7];
 
 endmodule
