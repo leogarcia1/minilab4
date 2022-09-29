@@ -8,13 +8,11 @@ module memB_tb();
 	// Change when more rows are added in
 	localparam numOfExpectedRowOutput = DIM; // keeps track of expected number of outputs from memB
 	localparam numMatRows = 1; // number of rows in matrix
-		
-	logic clk;
-	logic rst_n;
-	logic en;
-	logic signed [BITS_AB-1:0] Bin [DIM-1:0];
-	logic signed [BITS_AB-1:0] Bout [DIM-1:0];
-	
+	reg clk;
+	reg rst_n;
+	reg en;
+	reg signed [BITS_AB-1:0] Bin [DIM-1:0];
+	reg signed [BITS_AB-1:0] Bout [DIM-1:0];
 	int vecIdx; // the entry to write to in vector
 	int currMatRow;
 	int errors; // keeps track of number of errors in the tb
@@ -36,18 +34,19 @@ module memB_tb();
 	
 	// contains functions
 	memB_tc #(.BITS_AB(BITS_AB),
-						.DIM(DIM),
-						.numOfExpectedRowOutput(numOfExpectedRowOutput)
-					) funcMod;
-	
+			.DIM(DIM),
+			.numOfExpectedRowOutput(numOfExpectedRowOutput)
+			) funcMod;
 	
 
 	initial begin
+		clk = 1'b0; // initialize clock 
 		rst_n = 1'b1;
 		en = 1'b0;
 		vecIdx = 0;
+		// Initialize the Bin vector array
 		for(int i = 0; i < DIM; i = i + 1)
-			Bin[i] = {BITS_AB{'b0}};
+			Bin[i] = {BITS_AB{1'b0}};
 		errors = 0;
 		currMatRow = 0;
 		//memB_tcINST funcMod;
@@ -80,9 +79,16 @@ module memB_tb();
 				// enable the memB to constantly shift in incoming rows
 				en = 1'b1;
 				
+				// Zero out the flip flow input 
+				@(negedge clk) begin
+					for(int i = 0; i < DIM; i = i + 1) begin
+						Bin[i] = {BITS_AB{1'b0}};
+					end
+				end
+				
 				// Wait for memB entries to settle in fifo
 				if(k === 0)
-					repeat(7) @(negedge clk); 
+					repeat(6) @(negedge clk); 
 				else
 					@(negedge clk); 
 				
@@ -98,7 +104,7 @@ module memB_tb();
 			@(negedge clk) begin
 				// Compare Bout with actual values
 				currMatRow = funcMod.get_matrix_row();
-				errors += funcMod.compareMatRow(currMatRow, Bin);
+				errors += funcMod.compareMatRow(currMatRow, Bout);
 				funcMod.next_matrix_row(); // increment row
 			end
 		end
@@ -110,8 +116,11 @@ module memB_tb();
 			$display("Mission Successful!!! All tests passed");
 		else
 			$display("Mission Failed! Check module and modify");
+
+		funcMod.dumpMatrix();
 		
-		
+		// End Simulation
+		$stop;
 	
 	end
 	
@@ -122,3 +131,4 @@ module memB_tb();
 	end
 
 endmodule
+

@@ -22,14 +22,14 @@ module memB
 	generate  
 		for (i = 0; i < DIM; i = i + 1) begin // for B rows
 			fifo #(.DEPTH(8+i),
-						.BITS(BITS_AB)
+					.BITS(BITS_AB)
 						) FIFO_BLK 
 						(
 						.clk(clk),
 						.rst_n(rst_n),
 						.en(en),
-						.d(Bin), // NOTE: Assuming [5,2,1,3,...] => 5 is index 0 of matrix
-						.q(Bout)
+						.d(Bin[DIM-1-i]), // NOTE: Assuming [5,2,1,3,...] in verilog array => 5 is index 7 of matrix
+						.q(Bout[DIM-1-i])
 						);
 		end
 		

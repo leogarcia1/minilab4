@@ -7,10 +7,9 @@ class memB_tc #(parameter BITS_AB=8,
 								parameter DIM=8,
 								parameter numOfExpectedRowOutput = DIM
 							);
-							
-	bit signed [BITS_AB-1:0] B_matrix [DIM-1:0][DIM-1:0]; // each row is the entry expected by the memB module
+	reg signed [BITS_AB-1:0] B_matrix [DIM-1:0][DIM-1:0]; // each row is the entry expected by the memB module
 	int BMatRow; // the current B row in the B matrix
-	bit signed [BITS_AB-1:0] BVec [DIM-1:0]; // B vector that would be skewed
+	reg signed [BITS_AB-1:0] BVec [DIM-1:0]; // B vector that would be skewed
 	
 	int BVecIdx; // the vector index of the vector that is currently being filled
 	int numRandGenerated; // number of random values generated
@@ -50,14 +49,14 @@ class memB_tc #(parameter BITS_AB=8,
   endfunction: next_vector_index		
 	
 	// Initialize current position in vector
-	function int initialize_vector_index_tb(bit signed [BITS_AB-1:0] randomGenerated);
+	function void initialize_vector_index_tb(reg signed [BITS_AB-1:0] randomGenerated);
 		// Initilize index in vector
 		BVec[BVecIdx] = randomGenerated;
   endfunction: initialize_vector_index_tb
 	
 	// Returns random B entry (calls multiple times gto initialize whole vector)
-	function bit signed [BITS_AB-1:0] get_random_B_entry();
-		bit signed [BITS_AB-1:0] randomGenerated; // random number generated 
+	function reg signed [BITS_AB-1:0] get_random_B_entry();
+		reg signed [BITS_AB-1:0] randomGenerated; // random number generated 
 		
 		// Initialize random number
 		randomGenerated = BITS_AB'($random);
@@ -78,23 +77,23 @@ class memB_tc #(parameter BITS_AB=8,
 		// Ensure whole vector has first been initialized
 		if(numRandGenerated % DIM == 0) begin
 			for(int i = 0; i < DIM; i = i + 1) begin
-				B_matrix[rowVecNum + i][i] = BVec[i];
+				B_matrix[rowVecNum - 1 + DIM - 1 - i][DIM - 1 - i] = BVec[DIM - 1 - i];
 			end
 		end
   endfunction: initialize_skewed_B
 	
 	// compRow is the row to be compared
 	// BVecComp is the vector to be compared
-	function int compareMatRow(int compRow, bit signed [BITS_AB-1:0]BVecComp);
+	function int compareMatRow(int compRow, reg signed [BITS_AB-1:0]BVecComp[DIM-1:0]);
 		int numErrors = 0;
 		for(int i = 0; i < DIM; i = i + 1) begin
-				if(B_matrix[compRow][i] !== BVecComp[i]) begin
+				if(B_matrix[numOfExpectedRowOutput - compRow - 1][i] !== BVecComp[i]) begin
 					numErrors++;
+					$display("Error: Expected %x not %x", B_matrix[numOfExpectedRowOutput - compRow - 1][i], BVecComp[i]);
 				end
 		end
 		
-		if(numErrors > 0)
-			$display("There are some errors in the %d row", compRow);
+		// ss("There are some errors in the %d row", compRow);
 			
 		return numErrors;
 	endfunction: compareMatRow
@@ -105,9 +104,23 @@ class memB_tc #(parameter BITS_AB=8,
   endfunction: get_matrix_row	
 
 	// Update the next row of the B matrix
-	function int next_matrix_row();
+	function void next_matrix_row();
 		BMatRow = BMatRow + 1;
-		return BMatRow;
   endfunction: next_matrix_row	
+	
+	// Resets the current row of the B matrix to 0 (the first)
+	function int reset_matrix_row();
+		BMatRow = 0;
+  endfunction: reset_matrix_row	
+
+	// Writes out all the rows in the B matrix
+	function void dumpMatrix(); 
+		for(int j = 0; j < numOfExpectedRowOutput; j = j + 1) begin
+			for(int i = 0; i < DIM; i = i + 1) begin
+				$write("%x ", B_matrix[numOfExpectedRowOutput - 1 - j][DIM - 1 - i]);
+			end
+			$display(""); // newline
+		end
+	endfunction: dumpMatrix
 					
 endclass:memB_tc
