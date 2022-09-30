@@ -21,17 +21,13 @@ wire [DIM-1:0] isSelectedRow;
 wire [DIM-1:0] WrEnVector;
 
 // reg zeros
-reg signed [BITS_AB-1:0] zerosArray [DIM-1:0];
-
-// Pull to zero
-always @(posedge clk, negedge rst_n)
-	for(int i = 0; i < DIM; i++)
-		zerosArray[i] <= '0;
+wire signed [BITS_AB-1:0] zerosArray [DIM-1:0];
 
 genvar row;
 generate
 	for (row = DIM - 1; row >= 0; row--) begin
 		// Prepare the values
+		assign zerosArray[row] = '0;
 		assign isSelectedRow[row] = 1'(Arow === DIM - 1 - row); // row 0 selected by Arow should be verilog's index 7
 		assign Ain_intermediate[row] = isSelectedRow[row]  ? Ain : zerosArray; 
 		assign WrEnVector[row] = isSelectedRow[row] ? WrEn : 0;

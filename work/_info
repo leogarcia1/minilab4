@@ -1,0 +1,397 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d//Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4
+T_opt
+!s110 1664507458
+VaK`MKn_cYQD?F@8fioK?K2
+Z1 04 7 4 work memA_tb fast 0
+=1-001c42bc0ae4-63365e42-92-19ec
+o-quiet -auto_acc_if_foreign -work work
+Z2 tCvgOpt 0
+n@_opt
+Z3 OL;O;10.6d;65
+R0
+T_opt1
+!s110 1664507502
+VkCEPFBozZmnW2><56bLD=2
+R1
+=1-001c42bc0ae4-63365e6e-2c9-3f8
+o-quiet -auto_acc_if_foreign -work work +acc
+R2
+n@_opt1
+R3
+vfifo
+Z4 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
+Z5 !s110 1664507447
+!i10b 1
+!s100 :CSE0TU2MHS2CEz`fX=G<0
+IzPECXA<cal^GY>LPUEmnh1
+Z6 VDg1SIo80bB@j0V0VzS_@n1
+!s105 fifo_sv_unit
+S1
+R0
+Z7 w1664481403
+8//Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/fifo.sv
+F//Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/fifo.sv
+L0 6
+Z8 OL;L;10.6d;65
+r1
+!s85 0
+31
+Z9 !s108 1664507447.000000
+!s107 //Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/fifo.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|//Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/fifo.sv|
+!i113 0
+Z10 o-work work -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R2
+vmemA
+R4
+R5
+!i10b 1
+!s100 FPUF;UWGe60bbUBZ6_Qd>0
+I29oKO>Q7J[l>3<[Y`o4fC1
+R6
+!s105 memA_sv_unit
+S1
+R0
+w1664507442
+8//Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/memA.sv
+F//Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/memA.sv
+L0 6
+R8
+r1
+!s85 0
+31
+R9
+!s107 //Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/memA.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|//Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/memA.sv|
+!i113 0
+R10
+R2
+nmem@a
+vmemA_tb
+R4
+DXx4 work 15 memA_tb_sv_unit 0 22 OSd38l4Tg86eR;NYe42J32
+R6
+r1
+!s85 0
+31
+!i10b 1
+!s100 im;_9WO=<Q=`MgV9=Pah50
+I]lX7L1PVCWXojSJWKm`4l1
+!s105 memA_tb_sv_unit
+S1
+R0
+w1664501195
+Z11 8//Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/memA_tb.sv
+Z12 F//Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/memA_tb.sv
+L0 5
+R8
+R9
+Z13 !s107 memA_tc.svh|//Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/memA_tb.sv|
+Z14 !s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|//Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/memA_tb.sv|
+!i113 0
+R10
+R2
+nmem@a_tb
+XmemA_tb_sv_unit
+R4
+VOSd38l4Tg86eR;NYe42J32
+r1
+!s85 0
+31
+!i10b 1
+!s100 _mdiz]7M<z5lfimnP7Bb83
+IOSd38l4Tg86eR;NYe42J32
+!i103 1
+S1
+R0
+Z15 w1664502638
+R11
+R12
+FmemA_tc.svh
+L0 1
+R8
+R9
+R13
+R14
+!i113 0
+R10
+R2
+nmem@a_tb_sv_unit
+XmemA_tc_svh_unit
+R4
+R5
+!i10b 1
+!s100 >Q^oRGohcIEFcJ;n1Q:Hb3
+I[GR^o_3[7EM0hD:4iY6?00
+V[GR^o_3[7EM0hD:4iY6?00
+!i103 1
+S1
+R0
+R15
+8//Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/memA_tc.svh
+F//Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/memA_tc.svh
+L0 1
+R8
+r1
+!s85 0
+31
+R9
+!s107 //Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/memA_tc.svh|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|//Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/memA_tc.svh|
+!i113 0
+R10
+R2
+nmem@a_tc_svh_unit
+vmemB
+R4
+R5
+!i10b 1
+!s100 ogo6S=d9GBSX;N;EE^?Yj3
+IQk0N;nk_4Xc1ZBd=R7Tz=0
+R6
+!s105 memB_sv_unit
+S1
+R0
+R7
+8//Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/memB.sv
+F//Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/memB.sv
+L0 4
+R8
+r1
+!s85 0
+31
+R9
+!s107 //Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/memB.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|//Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/memB.sv|
+!i113 0
+R10
+R2
+nmem@b
+vmemB_tb
+R4
+DXx4 work 15 memB_tb_sv_unit 0 22 ;^=@H;hn8:b5kXRjOT7WP2
+R6
+r1
+!s85 0
+31
+!i10b 1
+!s100 h8818j[2NYW4UzLeK;<7e0
+I83b3W8@QLR:ned9m:nzHB3
+!s105 memB_tb_sv_unit
+S1
+R0
+R7
+Z16 8//Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/memB_tb.sv
+Z17 F//Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/memB_tb.sv
+L0 5
+R8
+R9
+Z18 !s107 memB_tc.svh|//Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/memB_tb.sv|
+Z19 !s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|//Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/memB_tb.sv|
+!i113 0
+R10
+R2
+nmem@b_tb
+XmemB_tb_sv_unit
+R4
+V;^=@H;hn8:b5kXRjOT7WP2
+r1
+!s85 0
+31
+!i10b 1
+!s100 WU>B`T]LBA5=]C8cJY6La0
+I;^=@H;hn8:b5kXRjOT7WP2
+!i103 1
+S1
+R0
+R7
+R16
+R17
+FmemB_tc.svh
+L0 6
+R8
+R9
+R18
+R19
+!i113 0
+R10
+R2
+nmem@b_tb_sv_unit
+XmemB_tc_svh_unit
+R4
+Z20 !s110 1664507448
+!i10b 1
+!s100 mWQ=5CjAzjnKi<B7[GATA0
+IXCl4Po=?Oe`llC5Ba1hGd3
+VXCl4Po=?Oe`llC5Ba1hGd3
+!i103 1
+S1
+R0
+R7
+8//Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/memB_tc.svh
+F//Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/memB_tc.svh
+L0 6
+R8
+r1
+!s85 0
+31
+Z21 !s108 1664507448.000000
+!s107 //Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/memB_tc.svh|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|//Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/memB_tc.svh|
+!i113 0
+R10
+R2
+nmem@b_tc_svh_unit
+vsystolic_array
+R4
+R20
+!i10b 1
+!s100 oMa^o]X0W_A_=0Q0CnJ=W2
+IjXk<oI2d<Y5^TY=I<iB7j2
+R6
+!s105 systolic_array_sv_unit
+S1
+R0
+R7
+8//Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/systolic_array.sv
+F//Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/systolic_array.sv
+L0 2
+R8
+r1
+!s85 0
+31
+R21
+!s107 //Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/systolic_array.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|//Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/systolic_array.sv|
+!i113 0
+R10
+R2
+vsystolic_array_tb
+R4
+DXx4 work 25 systolic_array_tb_sv_unit 0 22 EN^^3D3aJXAz6e6_PXnee0
+R6
+r1
+!s85 0
+31
+!i10b 1
+!s100 W1o2kYC^EfMm:0PEV32?N3
+Ik?kK=GcQj1?Af9VJc2k0Y2
+!s105 systolic_array_tb_sv_unit
+S1
+R0
+R7
+Z22 8//Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/systolic_array_tb.sv
+Z23 F//Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/systolic_array_tb.sv
+L0 5
+R8
+R21
+Z24 !s107 systolic_array_tc.svh|//Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/systolic_array_tb.sv|
+Z25 !s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|//Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/systolic_array_tb.sv|
+!i113 0
+R10
+R2
+Xsystolic_array_tb_sv_unit
+R4
+VEN^^3D3aJXAz6e6_PXnee0
+r1
+!s85 0
+31
+!i10b 1
+!s100 ^zB<7T`k:P;5@ATS918Ee2
+IEN^^3D3aJXAz6e6_PXnee0
+!i103 1
+S1
+R0
+R7
+R22
+R23
+Fsystolic_array_tc.svh
+L0 3
+R8
+R21
+R24
+R25
+!i113 0
+R10
+R2
+Xsystolic_array_tc_svh_unit
+R4
+R20
+!i10b 1
+!s100 azE3XfS`@ALH_ob;ajET81
+IA;4fhKookNAi40WF@R>VE3
+VA;4fhKookNAi40WF@R>VE3
+!i103 1
+S1
+R0
+R7
+8//Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/systolic_array_tc.svh
+F//Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/systolic_array_tc.svh
+L0 3
+R8
+r1
+!s85 0
+31
+R21
+!s107 //Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/systolic_array_tc.svh|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|//Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/systolic_array_tc.svh|
+!i113 0
+R10
+R2
+vtpumac
+R4
+R20
+!i10b 1
+!s100 ;hmJDTAmPk]QOfCTS9kN41
+I2^ld0gDLTn0iRI]YKm?gX0
+R6
+!s105 tpumac_sv_unit
+S1
+R0
+R7
+8//Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/tpumac.sv
+F//Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/tpumac.sv
+L0 2
+R8
+r1
+!s85 0
+31
+R21
+!s107 //Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/tpumac.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|//Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/tpumac.sv|
+!i113 0
+R10
+R2
+vtranspose_fifo
+R4
+R20
+!i10b 1
+!s100 26WIVi5^M7QV@O=zX<68j0
+IeY_W6_VeBjZd;l4f>4XME3
+R6
+!s105 transpose_fifo_sv_unit
+S1
+R0
+w1664500688
+8//Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/transpose_fifo.sv
+F//Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/transpose_fifo.sv
+L0 1
+R8
+r1
+!s85 0
+31
+R21
+!s107 //Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/transpose_fifo.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|//Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/transpose_fifo.sv|
+!i113 0
+R10
+R2
