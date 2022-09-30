@@ -21,7 +21,7 @@ module memA_tb();
     // Input rows which will be pumped into the memA module
     logic signed [BITS_AB-1:0] Ain [DIM-1:0];
     // A matrix that stores the giant square shape data which contains a rhombus shaped A
-    logic signed [BITS_AB-1:0] Aout [DIM-1:0][3*DIM-2-1:0];
+    logic signed [BITS_AB-1:0] Aout [3*DIM-2-1:0][DIM-1:0];
     // Temporary value that stores the value coming out of memA
     logic signed [BITS_AB-1:0] Aout_tmp [DIM-1:0];
 
@@ -32,7 +32,17 @@ module memA_tb();
     integer errors, mycycle;
 
     // Instantiate the device under test
-    memA #(.BITS_AB(BITS_AB), .DIM(DIM)) iDUT(.clk(clk), .rst_n(rst_n), .en(en), .WrEn(WrEn), .Ain(Ain), .Arow(Arow), .Aout(Aout_tmp));
+		memA #(.BITS_AB(BITS_AB), 
+					.DIM(DIM)) 
+					iDUT(
+						.clk(clk), 
+						.rst_n(rst_n), 
+						.en(en), 
+						.WrEn(WrEn), 
+						.Ain(Ain), 
+						.Arow(Arow), 
+						.Aout(Aout_tmp));
+						
     memA_tc #(.BITS_AB(BITS_AB), .DIM(DIM)) matc;
 
     initial begin
@@ -45,58 +55,73 @@ module memA_tb();
         en = 1'b0;
         WrEn = 1'b0;
         errors = 0;
-        Arow = {ROWBITS{1'b0}};
+				Arow = {ROWBITS{1'b0}};
+				// Initialize DUT input
+				for(int i = 0; i < DIM; i++)
+					Ain[i] = {BITS_AB{1'b0}};
+        
         //----------- INITIALIZE BLOCK: Initialize values in different matrices to 0 ------------
         // reset and check Cout
-        @(posedge clk) begin end
-        rst_n = 1'b0; // active low reset
-        @(posedge clk) begin end
-        rst_n = 1'b1; // reset finished
-        @(posedge clk) begin
+        repeat(2) @(negedge clk);
+					rst_n = 1'b0; // active low reset
+					
+        @(negedge clk);
+					rst_n = 1'b1; // reset finished
+					
+        @(negedge clk) begin
             // Initialize values in different matrices to 0
-            for(int rowcol=0;rowcol<DIM;++rowcol) begin
-                A[rowcol] = {BITS_AB{1'b0}};
-                Aout_tmp[rowcol] = {BITS_AB{1'b0}};
+						for(int i=0;i<DIM;++i) begin
+							for(int j=0;j<DIM;++j) begin
+									A[i][j] = {BITS_AB{1'b0}};  // reset storing matrix (2D matrix)
+							end
             end
-            for(int row=0; row<DIM; row++) begin
-                for(int col=0; col<DIM; col++) begin
-                    Aout[row][col] = {BITS_AB{1'b0}};
-                end
+						
+						for(int i=0; i<3*DIM-2; i++) begin // TODO
+							for(int j=0; j<DIM; j++) begin
+									Aout[i][j] = {BITS_AB{1'b0}};
+							end
             end
         end
         //----------- END INITIALIZE BLOCK: Initialize values in different matrices to 0 ------------
         //----------- TESTING BLOCK: test memA behavior MULTIPLE TIMES using different random value matrices ------------
         for(int test=0; test<TESTS; test++)begin
-            A = matc.new_matrix();  // Generate new random values to test memA
-            // Start writing values into the memA module
-            @(negedge clk) begin
-                WrEn = 1'b1;
-            end
-            // Load values from register into memA that will be tested
-            @(posedge clk) begin
-                for(int i=0; i<DIM; ++i)begin
-                    @(posedge clk)begin
-                        Arow = i;
-                    end
-                end
-            end
-            // Stop writing into the memA; start letting memA shifting values out of it.
-            @(negedge clk) begin
-                WrEn = 1'b0;
-                en = 1'b1;  // enables the memA, memA should start shifting out values
-            end
-            @(posedge clk) begin
-                for(int col=0; col<DIM; ++col)begin
-                    for(int row=0; row<DIM; ++row)begin
-                        Aout[row][mycycle] = Aout_tmp[row];
-                    end
-                    @(posedge clk) begin
-                        mycycle = matc.next_cycle();
-                    end
-                end
-            end
-            // TODO: Dump it to visualize it
-            matc.dump(Aout);
+					A = matc.new_matrix();  // Generate new random values to test memA
+					
+					// Initialize the skewed array
+					matc.initialize_skewed_A();
+
+					// Start writing values into the memA module
+					for(int i=0; i<DIM; ++i)begin
+							@(negedge clk)begin
+								WrEn = 1'b1;
+								Arow = ROWBITS'(i); // row 0 is the verilog's index 7 of the A matrix
+								Ain = A[DIM - 1 - i]; // from first row (7th index)
+							end
+					end
+            
+					@(negedge clk)
+						WrEn = 1'b0; // Stop writing into the memA array rows
+									
+					for(int i=0; i<3*DIM-2; ++i)begin
+						@(negedge clk) begin
+							Aout[mycycle] = Aout_tmp;
+							en = 1'b1;  // enables the memA, memA should start shifting out values
+							mycycle = matc.next_cycle();
+						end
+					end
+					
+					// Compare matrix
+					errors = matc.compareMatRow(Aout);
+					
+					if(errors > 0)
+						$display("Mission Failed! Please check files and make changes");
+					else
+						$display("Mission Successful!!! All tests passed");
+					
+					// TODO: Dump it to visualize it
+					matc.dump(Aout);
         end
+				
+				$stop;
     end
 endmodule

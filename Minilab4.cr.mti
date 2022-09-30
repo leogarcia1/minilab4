@@ -1,0 +1,85 @@
+{//Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/systolic_array_tc.svh} {1 {vlog -work work -vopt -sv -stats=none {//Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/systolic_array_tc.svh}
+Model Technology ModelSim SE-64 vlog 10.6d Compiler 2018.02 Feb 24 2018
+
+Top level modules:
+	--none--
+
+} {} {}} {//Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/memB_tc.svh} {1 {vlog -work work -vopt -sv -stats=none {//Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/memB_tc.svh}
+Model Technology ModelSim SE-64 vlog 10.6d Compiler 2018.02 Feb 24 2018
+
+Top level modules:
+	--none--
+
+} {} {}} {//Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/memA.sv} {1 {vlog -work work -vopt -sv -stats=none {//Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/memA.sv}
+Model Technology ModelSim SE-64 vlog 10.6d Compiler 2018.02 Feb 24 2018
+-- Compiling module memA
+
+Top level modules:
+	memA
+
+} {} {}} {//Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/transpose_fifo.sv} {1 {vlog -work work -vopt -sv -stats=none {//Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/transpose_fifo.sv}
+Model Technology ModelSim SE-64 vlog 10.6d Compiler 2018.02 Feb 24 2018
+-- Compiling module transpose_fifo
+
+Top level modules:
+	transpose_fifo
+
+} {} {}} {//Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/fifo.sv} {1 {vlog -work work -vopt -sv -stats=none {//Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/fifo.sv}
+Model Technology ModelSim SE-64 vlog 10.6d Compiler 2018.02 Feb 24 2018
+-- Compiling module fifo
+
+Top level modules:
+	fifo
+
+} {} {}} {//Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/memA_tb.sv} {1 {vlog -work work -vopt -sv -stats=none {//Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/memA_tb.sv}
+Model Technology ModelSim SE-64 vlog 10.6d Compiler 2018.02 Feb 24 2018
+-- Compiling package memA_tb_sv_unit
+-- Compiling module memA_tb
+
+Top level modules:
+	memA_tb
+
+} {} {}} {//Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/memA_tc.svh} {1 {vlog -work work -vopt -sv -stats=none {//Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/memA_tc.svh}
+Model Technology ModelSim SE-64 vlog 10.6d Compiler 2018.02 Feb 24 2018
+
+Top level modules:
+	--none--
+
+} {} {}} {//Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/memB_tb.sv} {1 {vlog -work work -vopt -sv -stats=none {//Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/memB_tb.sv}
+Model Technology ModelSim SE-64 vlog 10.6d Compiler 2018.02 Feb 24 2018
+-- Compiling package memB_tb_sv_unit
+-- Compiling module memB_tb
+
+Top level modules:
+	memB_tb
+
+} {} {}} {//Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/systolic_array.sv} {1 {vlog -work work -vopt -sv -stats=none {//Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/systolic_array.sv}
+Model Technology ModelSim SE-64 vlog 10.6d Compiler 2018.02 Feb 24 2018
+-- Compiling module systolic_array
+
+Top level modules:
+	systolic_array
+
+} {} {}} {//Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/memB.sv} {1 {vlog -work work -vopt -sv -stats=none {//Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/memB.sv}
+Model Technology ModelSim SE-64 vlog 10.6d Compiler 2018.02 Feb 24 2018
+-- Compiling module memB
+
+Top level modules:
+	memB
+
+} {} {}} {//Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/tpumac.sv} {1 {vlog -work work -vopt -sv -stats=none {//Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/tpumac.sv}
+Model Technology ModelSim SE-64 vlog 10.6d Compiler 2018.02 Feb 24 2018
+-- Compiling module tpumac
+
+Top level modules:
+	tpumac
+
+} {} {}} {//Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/systolic_array_tb.sv} {1 {vlog -work work -vopt -sv -stats=none {//Mac/Home/Documents/Fall 2022/ECE 554/Minilab 4/minilab4/systolic_array_tb.sv}
+Model Technology ModelSim SE-64 vlog 10.6d Compiler 2018.02 Feb 24 2018
+-- Compiling package systolic_array_tb_sv_unit
+-- Compiling module systolic_array_tb
+
+Top level modules:
+	systolic_array_tb
+
+} {} {}}
