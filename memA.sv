@@ -16,25 +16,37 @@ module memA
 );
 
 // for the remaining rows apart from the 1st
-reg signed [BITS_AB-1:0] Ain_intermediate [DIM-1:0][DIM-1:0];
+wire signed [BITS_AB-1:0] Ain_intermediate [DIM-1:0][DIM-1:0];
+wire [DIM-1:0] isSelectedRow;
+wire [DIM-1:0] WrEnVector;
 
+// reg zeros
+reg signed [BITS_AB-1:0] zerosArray [DIM-1:0];
+
+// Pull to zero
+always @(posedge clk, negedge rst_n)
+	for(int i = 0; i < DIM; i++)
+		zerosArray[i] <= '0;
 
 genvar row;
 generate
-	for (row = DIM - 1; row >= 0; row++) begin
+	for (row = DIM - 1; row >= 0; row--) begin
 		// Prepare the values
-		Ain_intermediate[row] =  (Arow === $clog2(DIM)'(row)) ? Ain : '{default: '0}}
-	
-		transpose_fifo #(
-										.DEPTH(DIM + DIM - 1 - row)) 
+		assign isSelectedRow[row] = 1'(Arow === DIM - 1 - row); // row 0 selected by Arow should be verilog's index 7
+		assign Ain_intermediate[row] = isSelectedRow[row]  ? Ain : zerosArray; 
+		assign WrEnVector[row] = isSelectedRow[row] ? WrEn : 0;
+		
+		transpose_fifo #(	
+										.DEPTH(DIM + DIM - 1 - row),
+										.DIM(DIM),
+										.BITS(BITS_AB)) 
 										tf(
 										.clk(clk),
 										.rst_n(rst_n),
 										.en(en),
-										.WrEn(WrEn),
+										.WrEn(isSelectedRow[row] & WrEnVector[row]), // only write to selected row
 										.Ain(Ain_intermediate[row]),
 										.Aout(Aout[row]));				
-		end
 	end
 endgenerate
 
